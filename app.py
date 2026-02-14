@@ -5,14 +5,14 @@ import urllib.parse
 
 # ページ設定
 st.set_page_config(
-    page_title="AI News Dashboard",
-    page_icon="🤖",
+    page_title="富野由悠季 News Dashboard",
+    page_icon="🎬",
     layout="wide"
 )
 
 # サイドバー設定
 st.sidebar.header("検索設定")
-search_query = st.sidebar.text_input("検索キーワード", value="Artificial Intelligence")
+search_query = st.sidebar.text_input("検索キーワード", value="富野由悠季")
 
 # CSSによるカードデザインの定義
 st.markdown("""
@@ -108,7 +108,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # メインコンテンツ
-st.title("🤖 AI News Dashboard")
+st.title("🎬 富野由悠季 News Dashboard")
 st.subheader(f"「{search_query}」の最新ニュース")
 
 # ニュース取得ロジック
