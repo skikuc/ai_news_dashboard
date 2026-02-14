@@ -17,60 +17,91 @@ search_query = st.sidebar.text_input("検索キーワード", value="Artificial 
 # CSSによるカードデザインの定義
 st.markdown("""
 <style>
+    /* 全体のフォントと背景設定 */
+    .stApp {
+        background-color: #f8f9fa;
+        color: #333333;
+        font-family: 'Helvetica Neue', Arial, sans-serif;
+    }
+    
+    /* カードデザインの更新 */
     .news-card {
-        background-color: #f0f2f6;
-        border-radius: 10px;
-        padding: 20px;
-        margin-bottom: 20px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        transition: transform 0.2s;
+        background-color: #ffffff;
+        border-radius: 12px;
+        padding: 24px;
+        margin-bottom: 24px;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        border: 1px solid #eaeaea;
     }
     .news-card:hover {
-        transform: translateY(-5px);
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
     }
+    
+    /* タイトルデザイン */
     .news-title {
-        color: #1f77b4;
-        font-size: 1.2em;
-        font-weight: bold;
-        margin-bottom: 10px;
+        color: #1a1a1a;
+        font-size: 1.3em;
+        font-weight: 700;
+        margin-bottom: 12px;
         text-decoration: none;
+        display: block;
+        line-height: 1.4;
     }
+    .news-title:hover {
+        color: #0066cc;
+        text-decoration: underline;
+    }
+    
+    /* メタ情報（日付など） */
     .news-meta {
-        color: #666;
-        font-size: 0.8em;
-        margin-bottom: 10px;
+        color: #888;
+        font-size: 0.85em;
+        margin-bottom: 16px;
+        display: flex;
+        align-items: center;
     }
+    
+    /* 記事要約 */
     .news-summary {
-        color: #333;
-        font-size: 0.9em;
-        margin-bottom: 15px;
+        color: #555;
+        font-size: 0.95em;
+        line-height: 1.6;
+        margin-bottom: 20px;
     }
+    
+    /* ボタンデザイン */
     .news-link-btn {
         display: inline-block;
-        background-color: #ff4b4b;
-        color: white;
-        padding: 5px 15px;
+        background-color: #0066cc;
+        color: white !important;
+        padding: 8px 16px;
         text-decoration: none;
-        border-radius: 5px;
+        border-radius: 6px;
         font-size: 0.9em;
+        font-weight: 500;
+        transition: background-color 0.2s;
     }
     .news-link-btn:hover {
-        background-color: #ff3333;
-        color: white;
+        background-color: #0052a3;
     }
-    /* ダークモード対応 */
+
+    /* ダークモードの強制無効化（ライトモード固定のための上書き） 
+       Streamlitの仕様上、st.set_page_configだけでは完全に制御できない部分を補完
+    */
     @media (prefers-color-scheme: dark) {
         .news-card {
-            background-color: #262730;
+            background-color: #ffffff;
         }
         .news-title {
-            color: #4da6ff;
+            color: #1a1a1a;
         }
         .news-meta {
-            color: #aaa;
+            color: #888;
         }
         .news-summary {
-            color: #ddd;
+            color: #555;
         }
     }
 </style>
