@@ -5,14 +5,14 @@ import urllib.parse
 
 # ページ設定
 st.set_page_config(
-    page_title="富野由悠季 News Dashboard",
-    page_icon="🎬",
+    page_title="坂本慎太郎・記事",
+    page_icon="🎸",
     layout="wide"
 )
 
-# サイドバー設定
-st.sidebar.header("検索設定")
-search_query = st.sidebar.text_input("検索キーワード", value="富野由悠季")
+# サイドバー設定（検索機能は今回は非表示）
+# st.sidebar.header("検索設定")
+search_query = "坂本慎太郎"
 
 # CSSによるカードデザインの定義
 st.markdown("""
@@ -108,8 +108,9 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # メインコンテンツ
-st.title("🎬 富野由悠季 News Dashboard")
-st.subheader(f"「{search_query}」の最新ニュース")
+st.title("🎸 坂本慎太郎・記事")
+# st.subheader(f"「{search_query}」の最新ニュース") # タイトルで十分なためサブヘッダーはシンプルに
+st.markdown("---")
 
 # ニュース取得ロジック
 def get_news(query):
