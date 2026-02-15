@@ -108,7 +108,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # メインコンテンツ
-st.title("🎸 坂本慎太郎・記事")
+st.markdown("<h1 style='font-size: 2.5rem;'>🎸 坂本慎太郎・記事</h1>", unsafe_allow_html=True)
 # st.subheader(f"「{search_query}」の最新ニュース") # タイトルで十分なためサブヘッダーはシンプルに
 st.markdown("---")
 
